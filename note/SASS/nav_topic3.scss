@@ -1,0 +1,18 @@
+// bg-color
+$nav-bgcolor: #797A7E;
+
+// text-color
+$naviconcolor: #F7F2E7;
+$naviconcolor_hover: #AFABAB;
+
+.nav0{
+    background-color: $nav-bgcolor;
+    .nav00{
+        .fa {
+            color: $naviconcolor;
+        }
+        .fa:hover{
+            color: $naviconcolor_hover;
+        }
+    }
+}

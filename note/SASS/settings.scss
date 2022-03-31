@@ -1,0 +1,65 @@
+//w & h & padding & margin
+$set-w:700px;
+$set-margin:auto;
+$set-item-margin: 30px;
+$set-input-margin: 10px;
+
+$submit-w: 70px;
+
+//border
+$submit-border-radius: 10px;
+
+.settings00{
+    width: $set-w;
+    margin: $set-margin;
+    .settings01{
+        p{
+            margin-bottom: 15px;
+        }
+    }
+    hr{
+        margin-bottom: 30px;
+        width: 720px;
+    }
+    .settings02{
+        margin-bottom: $set-item-margin;
+        
+        form{
+            #topic1{
+                margin-bottom: $set-input-margin;
+            }
+            #topic2{
+                margin-bottom: $set-input-margin;
+            }
+            #topic3{
+                margin-bottom: $set-input-margin;
+            }
+        }
+    }
+    .settings03{
+        form{
+            #tsize-large{
+                margin-bottom: $set-input-margin;
+            }
+            #tsize-medium{
+                margin-bottom: $set-input-margin;
+            }
+            #tsize-small{
+                margin-bottom: $set-input-margin;
+            }
+        }
+    }
+    .settings04{
+        display: flex;
+
+        .settings-btn{
+            width: $submit-w;
+            border-radius: $submit-border-radius;
+            margin: auto;
+            margin-top: 15px;
+        }
+        .settings-btn:hover{
+            cursor: pointer;
+        }
+    }
+}

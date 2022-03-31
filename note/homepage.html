@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <title>My Note</title>
+
+</head>
+<body>
+
+    <my-home></my-home>
+
+    <script type="module">
+        // 主題設定
+        if (!localStorage.getItem("topic")){
+            localStorage.setItem("topic", 1);
+        }
+        // 字型大小
+        if (!localStorage.getItem("tsize")){
+            localStorage.setItem("tsize", "m");
+        }
+        // Plus設定
+        if (!localStorage.getItem("plus")){
+            localStorage.setItem("plus", 0);
+        }
+
+        import MyNav from './JS/nav.mjs';
+        import Note from './JS/note.mjs';
+
+        const template = document.createElement("template");
+        template.innerHTML =`
+            <my-nav class="my-nav"></my-nav>
+            <my-note class="my-note"></my-note>
+        `;
+        class Home extends HTMLElement{
+            constructor(){
+                super();
+                this.attachShadow({mode:"open"});
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+            }    
+        }
+        window.customElements.define("my-home", Home); 
+    </script>
+
+</body>
+</html>

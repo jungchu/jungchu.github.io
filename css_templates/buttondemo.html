@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/buttondemo.css">
+</head>
+<body>
+    <div id="container0">
+        <div id="container">
+            <!-- 顯示區 -->
+            <div id="showContainer">
+                <div id="demoContainer">
+                    <Button id="demo">Button</Button>
+                </div>
+                <div id="cssCode">
+                    <p id="cssCodeStart">button{</p>
+                        <p id="widthCode">width:100px;</p>
+                        <p id="heightCode">height:35px;</p>
+                        <p id="bgcolorCode">background-color:#d1bc9e;</p>
+                        <p id="tsizeCode">font-size:18px;</p>
+                        <p id="tcolorCode">color:#fffde5;</p>
+                        <p id="borderCode">border: 1px solid #b9a2a2;</p>
+                        <p id="borderRadiusCode">border-radius: 30px;</p>
+                    <p id="cssCodeEnd">}</p>
+                </div>
+            </div>
+            
+            <!-- 調整區 -->
+            <div id="adjustContainer">
+                <div class="adj">
+                    <p>寬度</p>
+                    <input type="text" name="w-input" id="w-input" value="100">
+                    <select name="w-input-unit" id="w-input-unit">
+                        <option value="px" selected>px</option>
+                        <option value="%">%</option>
+                        <option value="vw">vw</option>
+                        <option value="em">em</option>
+                    </select>
+
+                    <p>高度</p>
+                    <input type="text" name="h-input" id="h-input" value="35">
+                    <select name="h-input-unit" id="h-input-unit">
+                        <option value="px" selected>px</option>
+                        <option value="%">%</option>
+                        <option value="vw">vw</option>
+                        <option value="em">em</option>
+                    </select>
+                </div>
+                <div class="adj">
+                    <p>背景顏色</p>
+                    <input type="color" name="bgcolor-input" id="bgcolor-input" value="#d1bc9e">
+                </div>
+                <div class="adj">
+                    <p>字體大小</p>
+                    <input type="text" name="tsize-input" id="tsize-input" value="18"><p id="tsize-input-unit" class="unit">px</p>
+                </div>
+                <div class="adj">
+                    <p>字體顏色</p>
+                    <input type="color" name="tcolor-input" id="tcolor-input" value="#fffde5">
+                </div>
+                <div class="adj">
+                    <p>邊框</p>
+                    <input type="radio" name="border-input" id="border-yes" value="y" checked>
+                    <label for="border-yes">有邊框</label>
+
+                    <input type="radio" name="border-input" id="border-no" value="n">
+                    <label for="border-no">無邊框</label>
+                </div>
+                <div id="borderAdj" class="adj">
+                    <p>邊框寬度</p>
+                    <input type="text" name="border-w-input" id="border-w-input" value="1"><p id="border-w-input-unit" class="unit border">px</p>
+                    <p>邊框樣式</p>
+                    <select name="border-type-input" id="border-type-input">
+                        <option value="solid" selected>實線邊框</option>
+                        <option value="dotted">點邊框</option>
+                        <option value="dashed">虛線邊框</option>
+                        <option value="double">雙邊框</option>
+                        <option value="groove">槽邊框</option>
+                        <option value="ridge">脊邊框</option>
+                        <option value="inset">凹邊框</option>
+                        <option value="outset">凸邊框</option>
+                    </select>
+                    <p>框角弧度</p>
+                    <input type="text" name="border-radius-input" id="border-radius-input" value="30">
+                    <select name="border-radiust-unit" id="border-radius-unit">
+                        <option value="px" selected>px</option>
+                        <option value="%">%</option>
+                    </select>
+                    <p>邊框顏色</p>
+                    <input type="color" name="border-color-input" id="border-color-input" value="#b9a2a2">
+                </div>
+            </div>       
+        </div>
+    </div>
+ 
+
+    <script>
+        function setW(e){
+            const wValue = e.target.value;
+            const unit = document.getElementById("w-input-unit").value;
+            const cssCode = "width:"+ wValue + unit +";";
+
+            if (wValue !== "" ){
+                //設定CSScode
+                document.getElementById("widthCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.width = wValue + unit ;
+
+            }else{
+                document.getElementById("widthCode").innerText = "" ;
+            }   
+        }
+
+        function setWUnit(e){
+            const wValue = document.getElementById("w-input").value;
+            const unit = e.target.value;
+            const cssCode = "width:"+ wValue + unit +";";
+           
+            if (wValue !== "" ){
+                //設定CSScode
+                document.getElementById("widthCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.width = wValue + unit ;
+
+            }else{
+                document.getElementById("widthCode").innerText = "" ;
+            }   
+        }
+
+        function setH(e){
+            const hValue = e.target.value;
+            const unit = document.getElementById("h-input-unit").value;
+            const cssCode = "height:"+ hValue + unit +";";
+
+            if (hValue !== "" ){
+                //設定CSScode
+                document.getElementById("heightCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.height = hValue + unit ;
+
+            }else{
+                document.getElementById("heightCode").innerText = "" ;
+            }   
+        }
+
+        function setHUnit(e){
+            const hValue = document.getElementById("h-input").value;
+            const unit = e.target.value;
+            const cssCode = "height:"+ hValue + unit +";";
+
+            if (hValue !== "" ){
+                //設定CSScode
+                document.getElementById("heightCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.height = hValue + unit ;
+
+            }else{
+                document.getElementById("heightCode").innerText = "" ;
+            }   
+        }
+
+        function setBgcolor(e){
+            const bgcolorValue = document.getElementById("bgcolor-input").value;
+            const cssCode = "background-color:"+ bgcolorValue + ";";
+
+            if (bgcolorValue !== "" ){
+                //設定CSScode
+                document.getElementById("bgcolorCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.backgroundColor = bgcolorValue;
+
+            }else{
+                document.getElementById("bgcolorCode").innerText = "" ;
+            }   
+        }
+
+        function setTsize(e){
+            const tsizeValue = document.getElementById("tsize-input").value;
+            const cssCode = "font-size:"+ tsizeValue + "px;";
+
+            if (tsizeValue !== "" ){
+                //設定CSScode
+                document.getElementById("tsizeCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.fontSize = tsizeValue + "px";
+
+            }else{
+                document.getElementById("tsizeCode").innerText = "" ;
+            }   
+        }
+
+        function setTcolor(e){
+            const tcolorValue = document.getElementById("tcolor-input").value;
+            const cssCode = "color:"+ tcolorValue + ";";
+
+            if (tcolorValue !== "" ){
+                //設定CSScode
+                document.getElementById("tcolorCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.color = tcolorValue ;
+
+            }else{
+                document.getElementById("tcolorCode").innerText = "" ;
+            }   
+        }
+        
+        function setBorderYes(e){
+            const borderY = e.target.value;
+            if (borderY){
+                document.getElementById("borderAdj").style.display = "block";
+            }
+        }
+
+        function setBorderNo(e){
+            const borderN = e.target.value;
+            if (borderN){
+                document.getElementById("borderAdj").style.display = "none";
+            }
+        }
+
+        function setBorderW(e){
+            const borderW = e.target.value;
+            const borderType = document.getElementById("border-type-input").value;
+            const borderColor = document.getElementById("border-color-input").value;
+            const cssCode = "border:"+ borderW + "px " + borderType + " " + borderColor + ";";
+            const borderWTC = borderW + "px " + borderType + " " + borderColor ;
+
+            if (borderW !== "" ){
+                //設定CSScode
+                document.getElementById("borderCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.border = borderWTC ;
+
+            }else{
+                document.getElementById("borderCode").innerText = "" ;
+            }   
+        }
+
+        function setBorderTtpe(e){
+            const borderW = document.getElementById("border-w-input").value;
+            const borderType = e.target.value;
+            const borderColor = document.getElementById("border-color-input").value;
+            const cssCode = "border:"+ borderW + "px " + borderType + " " + borderColor + ";";
+            const borderWTC = borderW + "px " + borderType + " " + borderColor ;
+ 
+            if (borderType !== "" ){
+                //設定CSScode
+                document.getElementById("borderCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.border = borderWTC ;
+
+            }else{
+                document.getElementById("borderCode").innerText = "" ;
+            }   
+        }
+
+        function setBorderRadius(e){
+            const borderR = e.target.value;
+            const borderRUnit = document.getElementById("border-radius-unit").value;
+            const cssCode = "border-radius:"+ borderR + borderRUnit + ";";
+
+            if (borderR !== "" ){
+                //設定CSScode
+                document.getElementById("borderRadiusCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.borderRadius = borderR + borderRUnit ;
+
+            }else{
+                document.getElementById("borderRadiusCode").innerText = "" ;
+            }
+        }
+
+        function setBorderColor(e){
+            const borderW = document.getElementById("border-w-input").value;
+            const borderType = document.getElementById("border-type-input").value;
+            const borderColor = e.target.value;
+            const cssCode = "border:"+ borderW + "px " + borderType + " " + borderColor + ";";
+            const borderWTC = borderW + "px " + borderType + " " + borderColor ;
+ 
+            if (borderColor !== "" ){
+                //設定CSScode
+                document.getElementById("borderCode").innerText = cssCode;
+                //設定Button樣式
+                document.getElementById("demo").style.border = borderWTC ;
+
+            }else{
+                document.getElementById("borderCode").innerText = "" ;
+            }  
+        }
+
+
+        document.getElementById("w-input").addEventListener("input",function(event){setW(event)});
+        document.getElementById("w-input-unit").addEventListener("input",function(event){setWUnit(event)});
+        document.getElementById("h-input").addEventListener("input",function(event){setH(event)});
+        document.getElementById("h-input-unit").addEventListener("input",function(event){setHUnit(event)});
+        document.getElementById("bgcolor-input").addEventListener("input",function(event){setBgcolor(event)});
+        document.getElementById("tsize-input").addEventListener("input",function(event){setTsize(event)});
+        document.getElementById("tcolor-input").addEventListener("input",function(event){setTcolor(event)});
+        document.getElementById("border-yes").addEventListener("click",function(event){setBorderYes(event)});
+        document.getElementById("border-no").addEventListener("click",function(event){setBorderNo(event)});
+        document.getElementById("border-w-input").addEventListener("input",function(event){setBorderW(event)});
+        document.getElementById("border-type-input").addEventListener("input",function(event){setBorderTtpe(event)});
+        document.getElementById("border-type-input").addEventListener("input",function(event){setBorderTtpe(event)});
+        document.getElementById("border-radius-input").addEventListener("input",function(event){setBorderRadius(event)});
+        document.getElementById("border-color-input").addEventListener("input",function(event){setBorderColor(event)});
+        
+    </script>
+</body>
+</html>

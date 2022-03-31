@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUNG CHU Personal profile</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/b106ad620d.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./CSS/PP_Home.css">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <div id="div01">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="PP_Home.html">Personal profile</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right" >
+                        <li class="active"><a href="PP_Home.html">Home</a></li>
+                        <li><a href="#aboutme">About me</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#protfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>        
+    </div>
+
+    <div id="aboutme" class="col-sm-12">
+        <div id="aboutme01">
+            <img src="./pic/pic.JPG" alt="my photo">
+            <h3>Jung Chu</h3>
+            <p>正在轉職成前端工程師的道路上努力著，對前端領域充滿熱情</p>
+            <p><i class='far fa-envelope'></i><a href="mailto:jungchu76@gmail.com">jungchu76@gmail.com</a></p>            
+            <p><i class='fab fa-github'></i><a href="https://github.com/jungchu">jungchu.github</a></p>            
+        </div>
+    </div>
+
+    <div id="skills" class="col-sm-12">
+        <div id="skills01">
+            <h3>Skills</h3>
+            <div id="skills02" >
+                <div id="skills03-1" class="col-sm-4">
+                    <div id="skills03-1-container">
+                        <h4></h4>
+                        <div>
+                            <b>HTML</b>
+                            <b>Javascript</b>
+                            <b>jQuery</b>                         
+                            <b>RWD</b>                         
+                        </div>
+                    </div>
+                </div>
+
+                <div id="skills03-2" class="col-sm-4">
+                    <div id="skills03-2-container">
+                        <h4></h4>
+                        <div>
+                            <b>CSS</b>
+                            <b>SCSS</b>
+                            <b>Bootstrap</b>                         
+                        </div>
+                    </div>
+                </div>
+
+                <div id="skills03-3" class="col-sm-4">
+                    <div  id="skills03-3-container">
+                        <h4></h4>
+                        <div>
+                            <b>Git</b>
+                            <b>GitHub</b>
+                            <b>Visual Studio Code</b>
+                        </div>
+                    </div>
+
+                </div>       
+            </div>
+        </div>
+    </div>
+
+    <div id="protfolio" class="col-sm-12">
+        <h3>Protfolio</h3>
+
+        <div id="protfolio01">
+            <div  id="protfolio01-1" class="work">
+                <a href="./css_templates/buttondemo.html">
+                    <div>
+                        <div id="work-img-1" class="work-img">
+                            <img id="work-img-1-img" src="./pic/work1.png" alt="pic01">
+                        </div>
+                        <div  id="work-name-1" class="work-name">
+                            <p>Design your own button simply</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="skill-description">
+                    <p>HTML / SCSS / Javascript</p>
+                </div>
+                
+            </div>  
+
+            <div  id="protfolio01-2" class="work">
+                <a href="./note/homepage.html">
+                    <div>
+                        <div id="work-img-2" class="work-img">
+                            <img id="work-img-2-img" src="./pic/work2-1.png" alt="pic02">
+                        </div>
+                        <div id="work-name-2" class="work-name">
+                            <p>My note</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="skill-description">
+                <p>HTML / SCSS / Javascript / Web component</p>
+                </div>
+            </div>
+
+            <div  id="protfolio01-3" class="work">
+                <a href="./station/station.html">
+                    <div>
+                        <div id="work-img-3" class="work-img">
+                            <img id="work-img-3-img" src="./pic/work3.png" alt="pic03">
+                        </div>
+                        <div id="work-name-3" class="work-name">
+                            <p>台灣氣象測站資訊</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="skill-description">
+                <p>HTML / SCSS / Javascript / AJAX / Web component / 政府資料開放平臺 / RWD </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer" class="col-sm-12">
+        <p>Copyright © 2022 Jung Chu All rights reserved.</p>
+    </div>
+
+
+
+    
+    <script>
+        
+        var i = 0
+        setInterval(() => {
+            i++;
+            if ( i == 4){
+                i = 1;
+            }
+            if ( i == 1 ){
+                document.getElementById("work-img-2-img").getAttributeNode("src").value = "./pic/work2-1.png"
+            }else if ( i == 2 ){
+                document.getElementById("work-img-2-img").getAttributeNode("src").value = "./pic/work2-2.png"
+            }else if ( i == 3 ){
+                document.getElementById("work-img-2-img").getAttributeNode("src").value = "./pic/work2-3.png"
+            }
+            
+        }, 1500);
+       
+    </script>
+</body>
+</html>

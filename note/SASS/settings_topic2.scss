@@ -1,0 +1,51 @@
+//color
+$text-color1: #B68473;
+$text-color2: #706f6c;
+
+$submit-bgcolor: #B68473;
+$submit-bgcolor-hover: #926150;
+$submit-color: #fcf8f1;
+
+//border
+$submit-border: 1px solid #99866b;
+
+.settings00{
+    .settings01{
+        p{
+            color: $text-color2;
+        }
+    }
+    hr{
+        border: 0.5px solid #af9d92;
+    }
+    .settings02{
+        p{
+            color: $text-color1;
+        }
+        form{
+            label{
+                color: $text-color2;
+            }
+        }
+    }
+    .settings03{
+        p{
+            color: $text-color1;
+        }
+        form{
+            label{
+                color: $text-color2;
+            }
+        }
+    }
+    .settings04{
+        .settings-btn{
+            color: $submit-color;
+            background-color: $submit-bgcolor;
+            border: $submit-border;
+        }
+        .settings-btn:hover{
+            background-color: $submit-bgcolor-hover;
+        }
+    }
+}

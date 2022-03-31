@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>氣象測站</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/station.css">
+</head>
+<body>
+    <div id="outerPageContainer">
+
+    <div id="pageContainer">
+        <div id="titleContainer">
+            <h1 id="title">氣象測站資訊</h1>
+            <hr>
+        </div>
+        <div id="contentContainer">
+            <div id="buttonContainer">
+                <button id="buttonY">有人測站</button>
+                <button id="buttonN">無人測站</button>
+            </div>
+            <div id="stationYContainer">
+                <select name="citySelectorY" id="citySelectorY">
+                    <option value="不分縣市" selected>不分縣市</option>
+                    <option value="基隆市">基隆市</option>
+                    <option value="臺北市">臺北市</option>
+                    <option value="新北市">新北市</option>
+                    <option value="桃園市">桃園市</option>
+                    <option value="新竹市">新竹市</option>
+                    <option value="新竹縣">新竹縣</option>
+                    <option value="苗栗縣">苗栗縣</option>
+                    <option value="臺中市">臺中市</option>
+                    <option value="彰化縣">彰化縣</option>
+                    <option value="南投縣">南投縣</option>
+                    <option value="雲林縣">雲林縣</option>
+                    <option value="嘉義縣">嘉義縣</option>
+                    <option value="臺南市">臺南市</option>
+                    <option value="高雄市">高雄市</option>
+                    <option value="屏東縣">屏東縣</option>
+                    <option value="宜蘭縣">宜蘭縣</option>
+                    <option value="花蓮縣">花蓮縣</option>
+                    <option value="臺東縣">臺東縣</option>
+                    <option value="連江縣">連江縣</option>
+                    <option value="澎湖縣">澎湖縣</option>
+                    <option value="金門縣">金門縣</option>                  
+                </select>
+                <select name="statusSelectorY" id="statusSelectorY">
+                    <option value="不分測站狀態" selected>不分測站狀態</option>
+                    <option value="現存測站">現存測站</option>
+                    <option value="已撤銷">已撤銷</option>
+                </select>
+                <div id="infoContainerY">
+                </div>
+            </div>
+            <div id="stationNContainer">
+                <select name="citySelectorN" id="citySelectorN">
+                    <option value="不分縣市" selected>不分縣市</option>
+                    <option value="基隆市">基隆市</option>
+                    <option value="臺北市">臺北市</option>
+                    <option value="新北市">新北市</option>
+                    <option value="桃園市">桃園市</option>
+                    <option value="新竹市">新竹市</option>
+                    <option value="新竹縣">新竹縣</option>
+                    <option value="苗栗縣">苗栗縣</option>
+                    <option value="臺中市">臺中市</option>
+                    <option value="彰化縣">彰化縣</option>
+                    <option value="南投縣">南投縣</option>
+                    <option value="雲林縣">雲林縣</option>
+                    <option value="嘉義縣">嘉義縣</option>
+                    <option value="臺南市">臺南市</option>
+                    <option value="高雄市">高雄市</option>
+                    <option value="屏東縣">屏東縣</option>
+                    <option value="宜蘭縣">宜蘭縣</option>
+                    <option value="花蓮縣">花蓮縣</option>
+                    <option value="臺東縣">臺東縣</option>
+                    <option value="連江縣">連江縣</option>
+                    <option value="澎湖縣">澎湖縣</option>
+                    <option value="金門縣">金門縣</option>
+                </select>
+                <select name="statusSelectorN" id="statusSelectorN">
+                    <option value="不分測站狀態" selected>不分測站狀態</option>
+                    <option value="現存測站">現存測站</option>
+                    <option value="已撤銷">已撤銷</option>
+                </select>
+
+                <div id="infoContainerN">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">資料來源：政府資料開放平臺 https://data.gov.tw/dataset/106682</div>
+</div>
+    
+    <script src="./js/changeCitySelectorY.js"></script>
+    <script src="./js/changeCitySelectorN.js"></script>
+    <script src="./js/changeStatusSelectorY.js"></script>
+    <script src="./js/changeStatusSelectorN.js"></script>
+    <script>
+        const buttonY = document.getElementById("buttonY");
+        const buttonN = document.getElementById("buttonN");
+        const stationYContainer = document.getElementById("stationYContainer");
+        const stationNContainer = document.getElementById("stationNContainer");
+
+        const infoContainerY = document.getElementById("infoContainerY");
+        const infoContainerN = document.getElementById("infoContainerN");
+        const citySelectorY = document.getElementById("citySelectorY");
+        const citySelectorN = document.getElementById("citySelectorN");
+        const statusSelectorY = document.getElementById("statusSelectorY");
+        const statusSelectorN = document.getElementById("statusSelectorN");
+
+        function getStationInfoY (i, dataArr){
+
+            const stationInfo = document.createElement("station-info");
+            const stationID = document.createElement("h1");
+            const stationName = document.createElement("h1");
+            const stationAddress = document.createElement("p");
+            const status = document.createElement("p");
+            const endDate = document.createElement("p");
+            const stationAltitude = document.createElement("p");
+            const note = document.createElement("p");
+
+            stationID.id = "stationID" + i;
+            stationName.id = "stationName" + i;
+            stationAddress.id = "stationAddress" + i;
+            status.id = "status" + i;
+            endDate.id = "endDate" + i;
+            stationAltitude.id = "stationAltitude" + i;
+            note.id = "note" + i;
+
+            stationInfo.className = "stationInfo";
+            stationID.className = "stationID";
+            stationName.className = "stationName";
+            stationAddress.className = "stationAddress";
+            status.className = "status";
+            endDate.className = "endDate";
+            stationAltitude.className = "stationAltitude";
+            note.className = "note";
+
+            stationID.slot = "stationID";
+            stationName.slot = "stationName";
+            stationAddress.slot = "stationAddress";
+            status.slot = "status";
+            endDate.slot = "endDate";
+            stationAltitude.slot = "stationAltitude";
+            note.slot = "note";
+
+            stationID.innerText = "站號：" + dataArr[i].stationID;
+            stationName.innerText = "站名：" +  dataArr[i].stationName + " " + dataArr[i].stationNameEN;
+            stationAddress.innerText = "地址：" +  dataArr[i].countyName + dataArr[i].stationAddress;
+            status.innerText = "測站狀態：" +  dataArr[i].status;
+
+            if (dataArr[i].endDate != ""){endDate.innerText = "撤站日期：" + dataArr[i].endDate;
+            }else{endDate.innerText = "撤站日期：" + " - ";}
+
+            if (dataArr[i].stationAltitude != ""){ stationAltitude.innerText = "海拔高度：" + dataArr[i].stationAltitude + "公尺";
+            }else{ stationAltitude.innerText ="海拔高度：" + " - ";}
+
+            if (dataArr[i].note != ""){note.innerText = "備註：" + dataArr[i].note;
+            }else{note.innerText = "備註：" + " - ";}
+
+            stationInfo.appendChild(stationID);
+            stationInfo.appendChild(stationName);
+            stationInfo.appendChild(stationAddress);
+            stationInfo.appendChild(status);
+            stationInfo.appendChild(endDate);
+            stationInfo.appendChild(stationAltitude);
+            stationInfo.appendChild(note);
+            infoContainerY.appendChild(stationInfo);
+        }; 
+
+        function getStationInfoN (i, dataArr){
+
+            const stationInfo = document.createElement("station-info");
+            const stationID = document.createElement("h1");
+            const stationName = document.createElement("h1");
+            const stationAddress = document.createElement("p");
+            const status = document.createElement("p");
+            const endDate = document.createElement("p");
+            const stationAltitude = document.createElement("p");
+            const note = document.createElement("p");
+
+            stationID.id = "stationID" + i;
+            stationName.id = "stationName" + i;
+            stationAddress.id = "stationAddress" + i;
+            status.id = "status" + i;
+            endDate.id = "endDate" + i;
+            stationAltitude.id = "stationAltitude" + i;
+            note.id = "note" + i;
+
+            stationInfo.className = "stationInfo";
+            stationID.className = "stationID";
+            stationName.className = "stationName";
+            stationAddress.className = "stationAddress";
+            status.className = "status";
+            endDate.className = "endDate";
+            stationAltitude.className = "stationAltitude";
+            note.className = "note";
+
+            stationID.slot = "stationID";
+            stationName.slot = "stationName";
+            stationAddress.slot = "stationAddress";
+            status.slot = "status";
+            endDate.slot = "endDate";
+            stationAltitude.slot = "stationAltitude";
+            note.slot = "note";
+
+            stationID.innerText = "站號：" + dataArr[i].stationID;
+            stationName.innerText = "站名：" +  dataArr[i].stationName + " " + dataArr[i].stationNameEN;
+            stationAddress.innerText = "地址：" +  dataArr[i].countyName + dataArr[i].stationAddress;
+            status.innerText = "測站狀態：" +  dataArr[i].status;
+
+            if (dataArr[i].endDate != ""){endDate.innerText = "撤站日期：" + dataArr[i].endDate;
+            }else{endDate.innerText = "撤站日期：" + " - ";}
+
+            if (dataArr[i].stationAltitude != ""){ stationAltitude.innerText = "海拔高度：" + dataArr[i].stationAltitude + "公尺";
+            }else{ stationAltitude.innerText ="海拔高度：" + " - ";}
+
+            if (dataArr[i].note != ""){note.innerText = "備註：" + dataArr[i].note;
+            }else{note.innerText = "備註：" + " - ";}
+
+            stationInfo.appendChild(stationID);
+            stationInfo.appendChild(stationName);
+            stationInfo.appendChild(stationAddress);
+            stationInfo.appendChild(status);
+            stationInfo.appendChild(endDate);
+            stationInfo.appendChild(stationAltitude);
+            stationInfo.appendChild(note);
+            infoContainerN.appendChild(stationInfo);
+        }; 
+
+        function clearStationInfo(){
+            document.querySelectorAll(".stationInfo").forEach(function (el) { el.remove() })
+        };
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            const res = JSON.parse(this.responseText);
+            if (res.success){    
+                const dataArr = res.records.data.stationStatus.station;
+                const dataLen = res.records.data.stationStatus.station.length;
+                
+                if (citySelectorY.value == "不分縣市"){ 
+                    for (let i = 0; i < dataLen; i++){ 
+                        getStationInfoY (i, dataArr); 
+                        
+                    }
+                };
+
+                citySelectorY.addEventListener("change", ()=>{
+                    changeCitySelectorY(citySelectorY, statusSelectorY, dataArr, dataLen, getStationInfoY, clearStationInfo);
+                });
+                statusSelectorY.addEventListener("change", ()=>{
+                    changeStatusSelectorY(citySelectorY, statusSelectorY, dataArr, dataLen, getStationInfoY, clearStationInfo);
+                });
+
+            }else{ 
+                document.getElementById("demo").innerHTML =`Error!`; 
+            };
+        };
+        xhttp.open("GET", "https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0074-001?Authorization=rdec-key-123-45678-011121314");
+        xhttp.send();
+
+            
+
+        buttonY.addEventListener("click", ()=>{
+            // 更改CSS樣式
+            buttonY.style.backgroundColor = "#659BDE";
+            buttonY.style.border = "1px solid #446997";
+            buttonN.style.backgroundColor = "#afafaf";
+            buttonN.style.border = "1px solid #969696";  
+            stationYContainer.style.display = "block";
+            stationNContainer.style.display = "none";    
+            
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                const res = JSON.parse(this.responseText);
+                if (res.success){    
+                    const dataArr = res.records.data.stationStatus.station;
+                    const dataLen = res.records.data.stationStatus.station.length;
+
+                    if (citySelectorY.value == "不分縣市"){ 
+                        for (let i = 0; i < dataLen; i++){ 
+                            getStationInfoY (i, dataArr); 
+                        }
+                    };
+
+                    citySelectorY.addEventListener("change", ()=>{
+                        changeCitySelectorY(citySelectorY, statusSelectorY, dataArr, dataLen, getStationInfoY, clearStationInfo);
+                    });
+                    statusSelectorY.addEventListener("change", ()=>{
+                        changeStatusSelectorY(citySelectorY, statusSelectorY, dataArr, dataLen, getStationInfoY, clearStationInfo);
+                    });
+                }else{ 
+                    document.getElementById("demo").innerHTML =`Error!`; 
+                };
+            };
+            xhttp.open("GET", "https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0074-001?Authorization=rdec-key-123-45678-011121314");
+            xhttp.send();
+
+        });
+
+
+        buttonN.addEventListener("click", ()=>{
+            // 更改CSS樣式
+            buttonN.style.backgroundColor = "#659BDE";
+            buttonN.style.border = "1px solid #446997";
+            buttonY.style.backgroundColor = "#afafaf";
+            buttonY.style.border = "1px solid #969696";   
+            stationYContainer.style.display = "none";
+            stationNContainer.style.display = "block";
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                const res = JSON.parse(this.responseText);
+                if (res.success){ 
+                    const dataArr = res.records.data.stationStatus.station;
+                    const dataLen = res.records.data.stationStatus.station.length;
+
+                    if (citySelectorN.value == "不分縣市"){ 
+                        for (let i = 0; i < dataLen; i++){ 
+                            getStationInfoN (i, dataArr); 
+                        }
+                    };
+
+                    citySelectorN.addEventListener("change", ()=>{
+                        changeCitySelectorN(citySelectorN, statusSelectorN, dataArr, dataLen, getStationInfoN, clearStationInfo);
+                    });
+                    statusSelectorN.addEventListener("change", ()=>{
+                        changeStatusSelectorN(citySelectorN, statusSelectorN, dataArr, dataLen, getStationInfoN, clearStationInfo);
+                    });
+                }else{ 
+                document.getElementById("demo").innerHTML =`Error!`; 
+                };
+            };
+            xhttp.open("GET", "https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0074-002?Authorization=rdec-key-123-45678-011121314");
+            xhttp.send();
+        });
+        
+    </script>
+
+    <script type="module">
+        import stationInfo from './js/stationInfo.mjs';
+    </script>
+</body>
+</html>

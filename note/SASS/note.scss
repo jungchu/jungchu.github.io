@@ -1,0 +1,70 @@
+//note w & h & padding & margin
+$note-w: 800px;
+$note-h: 200px;
+$note-padding: 25px;
+$note-margin: auto;
+
+$note01-margin-bottom:10px;
+
+$note-title-w: 600px;
+$note-title-padding:5px;
+
+$note-date-w: 200px;
+$note-date-padding:5px;
+
+$note-content-w: 760px;
+$note-content-h: 130px;
+$note-content-margin-top:10px;
+
+.note000{
+   .note00{
+        position: relative;
+        box-sizing: border-box;
+        width: $note-w;
+        height: $note-h;
+        margin: $note-margin;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: $note-padding;
+        
+        z-index: 2;
+
+        .note01{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: $note01-margin-bottom;
+
+            // 備忘錄標題
+            .note-title{
+                width: $note-title-w;
+            }
+            // 備忘錄日期
+            .note-date{
+                width: $note-date-w;
+                text-align: right;
+            }
+            .note-x{
+                position: absolute;
+                top: 0px;
+                right: 5px;
+                text-align: right;
+            }
+        }
+        
+        .note02{
+            // 備忘錄內容
+            .note-content{
+                margin-top: $note-content-margin-top;
+                width: $note-content-w;
+                height: $note-content-h;
+                overflow-y: scroll;
+            }
+        }
+        .noteIndex{
+            display: none;
+        }
+    } 
+}
+
+

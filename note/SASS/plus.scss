@@ -1,0 +1,90 @@
+//plus w & h & padding & margin
+
+$plus-w: 700px;
+$plus-margin: auto;
+
+$input-h: 35px;
+$input-margin: 20px;
+$input-padding: 5px 10px;
+
+$label-margin: 10px;
+
+$note-content-h: 230px;
+
+$note-submit-w: 70px;
+$note-submit-h: 30px;
+
+// text
+$text-size1:30px;
+$text-size2:20px;
+$text-size3:16px;
+
+//border
+$input-border-radius: 10px;
+
+.plus00{
+    display: none;
+    width: $plus-w;
+    box-sizing: border-box;
+    margin: $plus-margin;
+
+    .plus01{
+        p{
+            font-size: $text-size1;
+            margin-bottom: 15px;
+        }
+    }
+    hr{
+        margin-bottom: 30px;
+        width: 720px;
+    }
+    .plus02{
+            label{
+                display: block;
+                font-size: $text-size2;
+            }
+            #note-title{
+                width: $plus-w;
+                height: $input-h;
+                margin-bottom: $input-margin;
+                border-radius: $input-border-radius;
+                padding: $input-padding;
+                font-size: $text-size3;
+
+            }
+            #note-date{
+                width: $plus-w;
+                height: $input-h;
+                padding: $input-padding;
+                margin-bottom: $input-margin;
+                border-radius: $input-border-radius;
+                font-size: $text-size3;
+                cursor: text;
+            }
+            #note-content{
+                width: $plus-w;
+                height: $note-content-h;
+                padding: $input-padding;
+                margin-bottom: $input-margin;
+                resize: none;
+                border-radius: $input-border-radius;
+                font-size: $text-size3;
+
+            }
+            div{
+                display: flex;
+                #note-submit{
+                    width: $note-submit-w;
+                    border-radius: $input-border-radius;
+                    font-size: $text-size3;
+                    margin: auto;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                }
+            }
+            
+            #note-submit:hover{
+                cursor: pointer;
+            }
+    }
+}

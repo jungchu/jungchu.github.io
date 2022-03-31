@@ -1,0 +1,41 @@
+// note-color
+$note00-bgcolor: #FBE2DC;
+
+// text
+$note-title-color: #B68473;
+$note-date-color: #706f6c;
+$note-x-color: #cc9481;
+$note-content-color: #8a8a8a;
+
+
+.note00{
+    background-color: $note00-bgcolor;
+
+    .note01{
+        // 備忘錄標題
+        .note-title{
+            color: $note-title-color;
+        }
+        // 備忘錄日期
+        .note-date{
+            color: $note-date-color;
+        }
+        .note-x{
+            color: $note-x-color;
+        }
+    }
+    hr{
+        border: 0.5px solid #bbaa90;
+    }
+    .note02{
+        // 備忘錄內容
+        .note-content{
+            color: $note-content-color;
+        }
+    }
+
+}
+
+.note00:hover{
+    box-shadow: 2px 2px 5px rgba(110, 110, 110, 0.5);
+}

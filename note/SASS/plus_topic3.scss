@@ -1,0 +1,68 @@
+// color
+$text-color1: #5a618d;
+$text-color2: #706f6c;
+
+$input-bgcolor: #deeff3;
+$note-submit-bgcolor: #738bb6;
+$note-submit-bgcolor-hover: #516383;
+$note-submit-color: #fcf8f1;
+
+//border
+$input-border: 1px solid #707483;
+$note-submit-border: 1px solid #6b7799;
+$focus-border: 3px solid #5a618d;
+
+
+.plus00{
+    .plus01{
+        p{
+            color: $text-color2;
+        }
+    }
+    hr{
+        border: 0.5px solid #929eaf;
+    }
+    .plus02{
+            label{
+                color: $text-color1;
+            }
+            #note-title{
+                background-color: $input-bgcolor;
+                color: $text-color2;
+                border: $input-border;
+            }
+            #note-title:focus{
+                outline: none;
+                border: $focus-border;
+            }
+            #note-date{
+                background-color: $input-bgcolor;
+                color: $text-color2;
+                border: $input-border;
+            }
+            #note-date:focus{
+                outline: none;
+                border: $focus-border;
+            }
+            #note-content{
+                background-color: $input-bgcolor;
+                color: $text-color2;
+                border: $input-border;
+            }
+            #note-content:focus{
+                outline: none;
+                border: $focus-border;
+            }
+            div{
+                #note-submit{
+                    color: $note-submit-color;
+                    background-color: $note-submit-bgcolor;
+                    border: $note-submit-border;
+                }
+            }
+            
+            #note-submit:hover{
+                background-color: $note-submit-bgcolor-hover;
+            }
+    }
+}

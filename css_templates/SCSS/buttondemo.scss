@@ -1,0 +1,114 @@
+$tcolor: rgb(61, 61, 61);
+$border:  1px solid gray;
+body{
+    position: relative;
+}
+#container0{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   #container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    #showContainer{
+        display: flex;
+        flex-direction: row;
+        width: 750px;
+        height: 300px;
+        margin: 30px 0px;
+        border: $border;
+
+        #demoContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: 100%;
+            #demo{
+                width: 100px;
+                height: 35px;
+                color: #fffde5;
+                background-color: #d1bc9e;
+                border: 1px solid #b9a2a2;
+                border-radius: 30px;
+                font-size: 18px;
+            }
+        }
+        #cssCode{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 50%;
+            height: 100%;
+            padding-left: 100px;
+            p{
+                color: $tcolor;
+                margin: 2px 0px;
+            }
+        }
+    }
+    #adjustContainer{
+        .adj{
+            padding: 10px ;
+            p{
+                display: inline-block;
+                padding-right: 5px;
+                color: $tcolor;
+                line-height: 20px;
+            }
+            #w-input, #h-input, #border-w-input, #tsize-input, #border-radius-input{
+                width: 60px;
+                border: none;
+                border-bottom: $border;
+                outline: none;
+                line-height: 16px;
+            }
+            #w-input-unit, #h-input-unit, #border-radius-unit{
+                border: none;
+                outline: none;
+                margin-right: 20px;
+            }           
+            label{
+                color: $tcolor;
+
+            }
+            #border-type-input{
+                border: none;
+                border-bottom: $border;
+                outline: none;
+                margin-right: 20px;
+                color: $tcolor;
+
+            }
+            .unit{
+                padding-left: 5px;
+                margin-right: 20px;
+                font-size: 14px;
+                color: $tcolor;
+
+            }
+        }       
+    }
+    } 
+}
+
+
+
+input[type="color"] {
+    -webkit-appearance: none;
+    border-bottom: $border;
+    outline: gray;
+    height: 18px;
+    line-height: 20px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}

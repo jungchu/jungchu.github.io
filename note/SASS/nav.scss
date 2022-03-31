@@ -1,0 +1,29 @@
+//nav w & h
+$nav-width: 100%;
+$nav-height: 50px;
+
+.nav0{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: $nav-width;
+    height: $nav-height;
+    z-index: 4;
+
+    .nav00{
+    position: relative;
+        .nav01{
+            padding-left: 10px;
+        }
+        .nav02{
+            position: absolute;
+            right: 10px;
+            top: 0px;
+        }
+
+        .fa {
+            font-size: 30px;
+            padding:10px;
+        }
+    }
+}

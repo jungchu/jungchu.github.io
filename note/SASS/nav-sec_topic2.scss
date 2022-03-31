@@ -1,0 +1,24 @@
+// bg-color
+$nav-sec-bgcolor: #f8eae2;
+
+// text
+$nav-sec-color: #856451;
+$nav-sec-color-hover: #d4895d;
+
+
+.nav-sec00{
+    background-color: $nav-sec-bgcolor;
+
+    .nav-sec01{
+        ul{
+            li{
+                a{
+                    color: $nav-sec-color;
+                }
+                a:hover{
+                    color: $nav-sec-color-hover;
+                }
+            }
+        }
+    }
+}

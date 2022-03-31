@@ -1,0 +1,40 @@
+//note w & h & padding & margin
+$note-date-h: 20px;
+$note-title-h: 20px;
+$note-x-h: 20px;
+
+// text
+$note-title-tsize: 20px;
+$note-date-tsize: 16px;
+$note-content-tsize: 18px;
+$note-x-tsize: 11px;
+
+
+.note00{
+    .note01{
+        height: $note-title-h;
+        // 備忘錄標題
+        .note-title{
+            height: $note-title-h;
+            font-size: $note-title-tsize;
+        }
+        // 備忘錄日期
+        .note-date{
+            font-size: $note-date-tsize;
+            line-height: $note-date-h;
+        }
+        .note-x{
+            font-size: $note-x-tsize;
+            line-height: $note-x-h;
+        }
+    }
+    
+    .note02{
+        // 備忘錄內容
+        .note-content{
+            font-size: $note-content-tsize;
+        }
+    }
+
+}
+

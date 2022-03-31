@@ -1,0 +1,105 @@
+//w & h
+$tb-w: 120px;
+$th-h: 50px;
+$td-h: 80px;
+
+$a-w: 50px;
+$a-h: 50px;
+$a-margin-top: 15px;
+
+//text
+$ym-tsize: 35px;
+$a-tsize: 20px;
+
+//border
+$tb-border: 2px solid #816c4b;
+
+//color
+$ym-color: #BA9B6E;
+$date-color: #856f4e;
+$a-color: #ffffff;
+$a-bgcolor: #d1b78f;
+
+$th-color: #ffffff;
+$th-bgcolor: #BA9B6E;
+
+#plan00{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    #plan01{
+        margin: auto;
+        margin-bottom: 10px;
+        font-size: $ym-tsize;
+        #yyyy{
+            font-size: $ym-tsize;
+            border: none;
+            outline: none;
+            color: $ym-color;
+            background-color: transparent;
+        }
+        p{
+            display: inline;
+            color: $ym-color;
+
+        }
+        #mm{
+            font-size: $ym-tsize;
+            border: none;
+            outline: none;
+            color: $ym-color;
+            background-color: transparent;
+        }
+    }
+    #plan02{
+        margin: auto;
+        margin-bottom: 40px;
+        #planTB{
+            border-collapse: collapse;
+            border: $tb-border;
+            border-radius: 10px;
+            box-sizing: border-box;
+            #planTR01{
+                th{
+                    width: $tb-w;
+                    height: $th-h;
+                    border: $tb-border;
+                    color: $th-color;
+                    background-color: $th-bgcolor;
+                    line-height: $th-h;
+                }
+            }
+            #planTR02, #planTR03, #planTR04, #planTR05, #planTR06, #planTR07{
+                td{
+                    position: relative;
+                    width: $tb-w;
+                    height: $td-h;
+                    border: $tb-border;
+                    p{
+                        position: absolute;
+                        display: block;
+
+                        top: 5px;
+                        right: 5px;
+                        color:$date-color;
+                    }
+                    a{
+                        display: none;
+                        background-color: $a-bgcolor;
+                        width: $a-w;
+                        height: $a-h;
+                        border-radius: 50%;
+                        line-height: $a-h;
+                        text-align: center;
+                        font-size: 20px;
+                        color: $a-color;
+                        margin: auto;
+                        margin-top: $a-margin-top;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

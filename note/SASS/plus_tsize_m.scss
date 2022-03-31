@@ -1,0 +1,36 @@
+//plus w & h & padding & margin
+$note-submit-h: 30px;
+
+// text
+$text-size1:30px;
+$text-size2:20px;
+$text-size3:16px;
+
+.plus00{
+    .plus01{
+        p{
+            font-size: $text-size1;
+        }
+    }
+    .plus02{
+        label{
+            font-size: $text-size2;
+        }
+        #note-title{
+            font-size: $text-size3;
+        }
+        #note-date{
+            font-size: $text-size3;
+        }
+        #note-content{
+            font-size: $text-size3;
+        }
+        div{
+            #note-submit{
+                font-size: $text-size3;
+                height: $note-submit-h;
+
+            }
+        }
+    }
+}

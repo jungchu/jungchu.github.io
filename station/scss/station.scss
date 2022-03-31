@@ -1,0 +1,242 @@
+
+#outerPageContainer{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+#pageContainer{
+    width: 100%;
+    height:100vh;
+    padding: 0px 2%;
+    box-sizing: border-box;
+
+    #titleContainer{
+        display: inline-block;
+        width: 100%;
+        color: #3B3838;
+
+        #title{
+            font-size: 30px;
+            padding: 25px 0px 10px 10px;
+        }
+    }
+    #contentContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        #buttonContainer{
+            display: inline-block;
+            width: 15%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            button{
+                width: 125px;
+                height: 35px;
+                border-radius: 20px;
+                font-size: 16px;
+                margin: 15px 0px;
+                background-color: #afafaf;
+                color: rgb(255, 255, 255);
+                border: 1px solid #969696;
+                cursor: pointer;
+            }
+            #buttonY{
+                background-color: #659BDE;
+                border: 1px solid #446997;
+
+            }
+        }
+
+        #stationYContainer{
+            display: inline-block;
+            width: 81%;
+            
+            #citySelectorY{
+                width: 80px;
+                height: 22px;
+                text-align: center;
+                margin-right: 15px;
+                margin-top: 15px;
+                margin-left: 30px;
+                border: none;
+                border-bottom: 1px solid #6e6e6e;
+                outline: none;
+            }
+            #statusSelectorY{
+                width: 100px;
+                height: 22px;
+                text-align: center;
+                margin-top: 15px;
+                border: none;
+                border-bottom: 1px solid #6e6e6e;
+                outline: none;
+            }
+            #infoContainerY{
+                overflow-y: scroll;
+                height: 70vh;
+                margin-top: 15px;
+                padding-left: 25px;
+                padding-bottom: 50px;
+
+                p{
+                    color: #404040;
+                }
+            }
+        }
+
+        #stationNContainer{
+            display: none;
+            width: 81%;
+
+            #citySelectorN{
+                width: 80px;
+                height: 22px;
+                text-align: center;
+                margin-right: 15px;
+                margin-top: 15px;
+                margin-left: 30px;
+                border: none;
+                border-bottom: 1px solid #6e6e6e;
+                outline: none;
+            
+            }
+            #statusSelectorN{
+                width: 100px;
+                height: 22px;
+                text-align: center;
+                margin-top: 15px;
+                border: none;
+                border-bottom: 1px solid #6e6e6e;
+                outline: none;
+                
+            }
+            #infoContainerN{
+                overflow-y: scroll;
+                height: 70vh;
+                margin-top: 15px;
+                padding-left: 25px;
+                p{
+                    color: #404040;
+                }
+            }
+        }
+    }
+
+}
+
+#footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(122, 122, 122);
+    color: rgb(238, 238, 238);
+    font-size: 13px;
+    text-align: center;
+}
+}
+
+@media only screen and (max-width: 768px) {
+    #outerPageContainer{
+    #pageContainer{
+        #titleContainer{
+            #title{
+                font-size: 23px;
+                padding: 20px 0px 10px 10px; 
+            }
+        }
+        #contentContainer{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+    
+            #buttonContainer{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+
+                button{
+                    width: 110px;
+                    height: 30px;
+                    font-size: 14px;
+                    margin: 5px 15px;
+                }
+                #buttonY{
+                   
+    
+                }
+            }
+    
+            #stationYContainer{
+                width: 100%;
+
+                // background-color: brown;
+                #citySelectorY{
+                    width: 80px;
+                    height: 22px;
+                    text-align: center;
+                    margin-right: 15px;
+                    margin-top: 0px;
+                    margin-left: 0px;
+                   
+                }
+                #statusSelectorY{
+                    width: 100px;
+                    height: 22px;
+                    text-align: center;
+                    margin-top: 15px;
+                
+                }
+                #infoContainerY{
+                    margin-top: 10px;
+                    padding-left: 0px;
+                    p{
+                    }
+                }
+            }
+    
+            #stationNContainer{
+                width: 100%;
+
+    
+                #citySelectorN{
+                   
+                    width: 80px;
+                    height: 22px;
+                    text-align: center;
+                    margin-right: 15px;
+                    margin-top: 0px;
+                    margin-left: 0px;
+                   
+                }
+                #statusSelectorN{
+                   
+                    width: 100px;
+                    height: 22px;
+                    text-align: center;
+                    margin-top: 15px;
+                    
+                }
+                #infoContainerN{
+                    margin-top: 10px;
+                    padding-left: 0px;
+                    p{
+                    }
+                }
+            }
+        }
+    
+    }
+    
+    #footer{
+      
+    }
+    
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <title>My Note - Settings</title></head>
+<body>
+    <my-settings></my-settings>
+
+    <script type="module">
+        
+        if (!localStorage.getItem("fa_bars_color")){
+        localStorage.setItem("fa_bars_color", "#767171");
+        }
+        if (!localStorage.getItem("fa_bars_color_hover")){
+        localStorage.setItem("fa_bars_color_hover", "#FFF1DA");
+        }
+        
+
+        import MyNav from "./JS/nav.mjs"
+        import Settings from "./JS/settings.mjs"
+
+        const template = document.createElement("template");
+        template.innerHTML = `
+            <my-nav></my-nav>
+            <settings-component></settings-component>
+        `;
+
+        class MySettings extends HTMLElement{
+            constructor(){
+                super();
+                this.attachShadow({mode:"open"});
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+            }
+           
+        }
+        window.customElements.define("my-settings", MySettings);
+    </script>
+</body>
+</html>

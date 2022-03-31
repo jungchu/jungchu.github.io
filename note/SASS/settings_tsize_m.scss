@@ -1,0 +1,33 @@
+//text
+$text-size1: 30px;
+$text-size2: 20px;
+$text-size3: 16px;
+$text-submit: 18px;
+
+$submit-h: 30px;
+
+
+.settings00{
+    .settings01{
+        p{
+            font-size: $text-size1;
+        }
+    }
+    .settings02{
+        p{
+            font-size: $text-size2;
+        }
+    }
+    .settings03{
+        p{
+            font-size: $text-size2;
+        }
+    }
+    .settings04{
+        .settings-btn{
+            font-size: $text-size3;
+            height: $submit-h;
+
+        }
+    }
+}

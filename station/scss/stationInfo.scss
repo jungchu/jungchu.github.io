@@ -1,0 +1,49 @@
+$text-color-1:#0070C0;
+$text-color-2:#404040;
+
+$text-size-1:18px;
+$text-size-2:15px;
+
+$text-family: Arial, Helvetica, sans-serif;
+
+@mixin headTemplate {
+    display: block;
+    padding: 3px 0px;
+    color: $text-color-1;
+    font-size: $text-size-1;
+}
+
+.stationInfo{
+    padding: 25px;
+    margin: 20px 0px;
+    font-family: $text-family;
+    background-color: #d8d8d8;
+    
+    .stationHead{
+
+        slot[name=stationID] {
+            @include headTemplate;
+        }
+        slot[name=stationName]{
+            @include headTemplate;
+        }
+    }
+    .stationContent{
+        color: $text-color-2;
+        font-size: $text-size-2;
+        margin: 10px 0px;
+
+        slot[name=stationAddress], 
+        slot[name=status],
+        slot[name=endDate],
+        slot[name=stationAltitude],
+        slot[name=note]{
+            display: block;
+            margin: 7px 0px;
+        }
+
+
+    }
+
+   
+}

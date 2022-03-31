@@ -1,0 +1,30 @@
+
+body{
+    position: relative;
+}
+.nav-sec00{
+    display: none;
+    position: absolute;
+    top: 0px;
+    width: 200px;
+    height: 100vh;
+    z-index: 3; 
+
+    .nav-sec01{
+        padding-top: 50px;
+        ul{
+            li{
+                padding: 15px 0px;
+                list-style-type: none;
+
+                a{
+                    text-decoration: none;
+
+                    .fa{
+                        padding-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
