@@ -411,11 +411,170 @@ class Plan extends HTMLElement {
             }
     }
 
-    changeyyyy(){
+    changeyyyy(e){
         this.shadowRoot.getElementById("planTB").remove();    
         this.shadowRoot.getElementById("plan02").appendChild(tb.content.cloneNode(true));
-        this.getDate();
 
+        const y = e.target.value;
+        const m = this.shadowRoot.getElementById("mm").value;
+        
+        function getLastDate(){
+
+            if (m == 1 || m == 3 || m == 5 || m == 7 ||
+                m == 8 || m == 10 || m == 12 ){ 
+                    return 31;
+            }else if( m == 4 || m == 6 || m == 9 || m == 11 ){ 
+                return 30;
+            }else if( m == 2 ){
+                if ((y % 4 == 0 && y % 100 != 0) || 
+                    (y % 400 == 0)) { 
+                    return 29; //閏年
+                } else { 
+                    return 28; //平年
+                }
+            }
+        };
+        const lastD = getLastDate();
+
+        const ymdStart =y + "-" + m + "-" + 1 ;
+        const dateStart = new Date(ymdStart);
+        const wkdStart = dateStart.getDay();
+   
+        const planTR = ["2-1","2-2","2-3","2-4","2-5","2-6","2-7",
+                        "3-1","3-2","3-3","3-4","3-5","3-6","3-7",
+                        "4-1","4-2","4-3","4-4","4-5","4-6","4-7",
+                        "5-1","5-2","5-3","5-4","5-5","5-6","5-7",
+                        "6-1","6-2","6-3","6-4","6-5","6-6","6-7",
+                        "7-1","7-2","7-3","7-4","7-5","7-6","7-7"
+                        ];
+
+        //填入日期
+        //如果此月1號是星期天
+        if (wkdStart === 0){
+            const idName ="planTR02-7";
+            const arrValue = "2-7";
+            const index =planTR.indexOf(arrValue);
+            this.shadowRoot.getElementById(idName).innerText = 1;
+
+            //處理行事曆中顯示某日note的數量
+            if (m < 10){
+                var nday = "n" + y + "-" + "0" + m + "-" + "01";
+            }else{
+                var nday = "n" + y + "-" + m + "-" + "01";
+            }
+            
+            const localSItem = localStorage.getItem(nday);
+            //判斷localStorage中 nyyyy-mm-dd是否存在
+            if (localSItem){
+                const aidName ="aplanTR02-7";
+                this.shadowRoot.getElementById(aidName).innerText = localSItem;
+                this.shadowRoot.getElementById(aidName).style.display = "block";
+            }else{
+                const aidName ="aplanTR02-7";
+                this.shadowRoot.getElementById(aidName).style.display = "none";
+            }
+
+            //此月2號到最後一天
+            for (let i = 2; i<lastD+1; i++){
+                const idName ="planTR0" + planTR[index+i-1] ;
+                this.shadowRoot.getElementById(idName).innerText = i;
+
+                //處理行事曆中顯示某日note的數量
+                //日期<10號
+                if(i < 10){
+                    //月份<10號
+                    if (m < 10){ var nday = "n" + y + "-" + "0" + m + "-" + "0" + i;
+                    //月份>=10號
+                    }else{ var nday = "n" + y + "-" + m + "-" + "0" + i; }
+                //日期>=10號
+                }else{
+                    //月份<10號
+                    if (m < 10){ var nday = "n" + y + "-" + "0" + m + "-" + i;
+                    //月份>=10號
+                    }else{ var nday = "n" + y + "-" + m + "-" + i; }
+                }
+                const localSItem = localStorage.getItem(nday);
+                //判斷localStorage中 nyyyy-mm-dd是否存在
+                if (localSItem){
+                    const aidName ="aplanTR0" + planTR[index+i-1] ;
+                    this.shadowRoot.getElementById(aidName).innerText = localSItem;
+                    this.shadowRoot.getElementById(aidName).style.display = "block";
+                }else{
+                    const aidName ="aplanTR0" + planTR[index+i-1] ;
+                    this.shadowRoot.getElementById(aidName).style.display = "none";
+                }
+            }
+
+        }else{
+            //如果第一天不是星期天
+            const idName ="planTR02-" + wkdStart ;
+            const arrValue = "2-" + wkdStart ;
+            const index =planTR.indexOf(arrValue);
+            this.shadowRoot.getElementById(idName).innerText = 1;
+
+            //處理行事曆中顯示某日note的數量
+            if (m < 10){
+                var nday = "n" + y + "-" + "0" + m + "-" + "01";
+            }else{
+                var nday = "n" + y + "-" + m + "-" + "01";
+            }
+            const localSItem = localStorage.getItem(nday);
+
+            //判斷localStorage中 nyyyy-mm-dd是否存在
+            if (localSItem){
+                const aidName ="aplanTR02-" + wkdStart ;
+                this.shadowRoot.getElementById(aidName).innerText = localSItem;
+                this.shadowRoot.getElementById(aidName).style.display = "block";
+            }else{
+                const aidName ="aplanTR02-" + wkdStart ;
+                this.shadowRoot.getElementById(aidName).style.display = "none";
+            }
+
+            for (let i = 2; i<lastD+1; i++){
+                const idName ="planTR0" + planTR[index+i-1] ;
+                this.shadowRoot.getElementById(idName).innerText = i;
+
+                //處理行事曆中顯示某日note的數量
+                //日期<10號
+                if(i < 10){
+                    //月份<10號
+                    if (m < 10){ var nday = "n" + y + "-" + "0" + m + "-" + "0" + i;
+                    //月份>=10號
+                    }else{ var nday = "n" + y + "-" + m + "-" + "0" + i; }
+                //日期>=10號
+                }else{
+                    //月份<10號
+                    if (m < 10){ var nday = "n" + y + "-" + "0" + m + "-" + i;
+                    //月份>=10號
+                    }else{ var nday = "n" + y + "-" + m + "-" + i; }
+                }
+
+                const localSItem = localStorage.getItem(nday);
+                //判斷localStorage中 nyyyy-mm-dd是否存在，
+                //若存在，則顯示note數
+                if (localSItem){
+                    const aidName ="aplanTR0" + planTR[index+i-1] ;
+                    this.shadowRoot.getElementById(aidName).innerText = localSItem;
+                    this.shadowRoot.getElementById(aidName).style.display = "block";
+                }else{
+                    const aidName ="aplanTR0" + planTR[index+i-1] ;
+                    this.shadowRoot.getElementById(aidName).style.display = "none";
+                }
+
+            }
+        }  
+        //如果行事曆最後一row都沒有值，則不顯示最後一row
+        const Row7_1 = this.shadowRoot.getElementById("planTR07-1").innerText;
+        const Row7_2 = this.shadowRoot.getElementById("planTR07-2").innerText;
+        const Row7_3 = this.shadowRoot.getElementById("planTR07-3").innerText;
+        const Row7_4 = this.shadowRoot.getElementById("planTR07-4").innerText;
+        const Row7_5 = this.shadowRoot.getElementById("planTR07-5").innerText;
+        const Row7_6 = this.shadowRoot.getElementById("planTR07-6").innerText;
+        const Row7_7 = this.shadowRoot.getElementById("planTR07-7").innerText;
+        if (Row7_1 == "" && Row7_2 == "" && Row7_3 == "" && Row7_4 == "" && 
+            Row7_5 == "" && Row7_6 == "" && Row7_7 == "" ){
+                this.shadowRoot.getElementById("planTR07").style.display = "none";
+            }
         //清除之前行事曆下的note
         if (this.shadowRoot.getElementById("note000")){
             this.shadowRoot.getElementById("note000").remove();
@@ -429,11 +588,169 @@ class Plan extends HTMLElement {
         this.disconnectedCallback();
     }
 
-    changemm(){
+    changemm(e){
         this.shadowRoot.getElementById("planTB").remove();    
         this.shadowRoot.getElementById("plan02").appendChild(tb.content.cloneNode(true)); 
-        this.getDate();
+        const y = this.shadowRoot.getElementById("yyyy").value;
+        const m = e.target.value;
+        
+        function getLastDate(){
 
+            if (m == 1 || m == 3 || m == 5 || m == 7 ||
+                m == 8 || m == 10 || m == 12 ){ 
+                    return 31;
+            }else if( m == 4 || m == 6 || m == 9 || m == 11 ){ 
+                return 30;
+            }else if( m == 2 ){
+                if ((y % 4 == 0 && y % 100 != 0) || 
+                    (y % 400 == 0)) { 
+                    return 29; //閏年
+                } else { 
+                    return 28; //平年
+                }
+            }
+        };
+        const lastD = getLastDate();
+
+        const ymdStart =y + "-" + m + "-" + 1 ;
+        const dateStart = new Date(ymdStart);
+        const wkdStart = dateStart.getDay();
+   
+        const planTR = ["2-1","2-2","2-3","2-4","2-5","2-6","2-7",
+                        "3-1","3-2","3-3","3-4","3-5","3-6","3-7",
+                        "4-1","4-2","4-3","4-4","4-5","4-6","4-7",
+                        "5-1","5-2","5-3","5-4","5-5","5-6","5-7",
+                        "6-1","6-2","6-3","6-4","6-5","6-6","6-7",
+                        "7-1","7-2","7-3","7-4","7-5","7-6","7-7"
+                        ];
+
+        //填入日期
+        //如果此月1號是星期天
+        if (wkdStart === 0){
+            const idName ="planTR02-7";
+            const arrValue = "2-7";
+            const index =planTR.indexOf(arrValue);
+            this.shadowRoot.getElementById(idName).innerText = 1;
+
+            //處理行事曆中顯示某日note的數量
+            if (m < 10){
+                var nday = "n" + y + "-" + "0" + m + "-" + "01";
+            }else{
+                var nday = "n" + y + "-" + m + "-" + "01";
+            }
+            
+            const localSItem = localStorage.getItem(nday);
+            //判斷localStorage中 nyyyy-mm-dd是否存在
+            if (localSItem){
+                const aidName ="aplanTR02-7";
+                this.shadowRoot.getElementById(aidName).innerText = localSItem;
+                this.shadowRoot.getElementById(aidName).style.display = "block";
+            }else{
+                const aidName ="aplanTR02-7";
+                this.shadowRoot.getElementById(aidName).style.display = "none";
+            }
+
+            //此月2號到最後一天
+            for (let i = 2; i<lastD+1; i++){
+                const idName ="planTR0" + planTR[index+i-1] ;
+                this.shadowRoot.getElementById(idName).innerText = i;
+
+                //處理行事曆中顯示某日note的數量
+                //日期<10號
+                if(i < 10){
+                    //月份<10號
+                    if (m < 10){ var nday = "n" + y + "-" + "0" + m + "-" + "0" + i;
+                    //月份>=10號
+                    }else{ var nday = "n" + y + "-" + m + "-" + "0" + i; }
+                //日期>=10號
+                }else{
+                    //月份<10號
+                    if (m < 10){ var nday = "n" + y + "-" + "0" + m + "-" + i;
+                    //月份>=10號
+                    }else{ var nday = "n" + y + "-" + m + "-" + i; }
+                }
+                const localSItem = localStorage.getItem(nday);
+                //判斷localStorage中 nyyyy-mm-dd是否存在
+                if (localSItem){
+                    const aidName ="aplanTR0" + planTR[index+i-1] ;
+                    this.shadowRoot.getElementById(aidName).innerText = localSItem;
+                    this.shadowRoot.getElementById(aidName).style.display = "block";
+                }else{
+                    const aidName ="aplanTR0" + planTR[index+i-1] ;
+                    this.shadowRoot.getElementById(aidName).style.display = "none";
+                }
+            }
+
+        }else{
+            //如果第一天不是星期天
+            const idName ="planTR02-" + wkdStart ;
+            const arrValue = "2-" + wkdStart ;
+            const index =planTR.indexOf(arrValue);
+            this.shadowRoot.getElementById(idName).innerText = 1;
+
+            //處理行事曆中顯示某日note的數量
+            if (m < 10){
+                var nday = "n" + y + "-" + "0" + m + "-" + "01";
+            }else{
+                var nday = "n" + y + "-" + m + "-" + "01";
+            }
+            const localSItem = localStorage.getItem(nday);
+
+            //判斷localStorage中 nyyyy-mm-dd是否存在
+            if (localSItem){
+                const aidName ="aplanTR02-" + wkdStart ;
+                this.shadowRoot.getElementById(aidName).innerText = localSItem;
+                this.shadowRoot.getElementById(aidName).style.display = "block";
+            }else{
+                const aidName ="aplanTR02-" + wkdStart ;
+                this.shadowRoot.getElementById(aidName).style.display = "none";
+            }
+
+            for (let i = 2; i<lastD+1; i++){
+                const idName ="planTR0" + planTR[index+i-1] ;
+                this.shadowRoot.getElementById(idName).innerText = i;
+
+                //處理行事曆中顯示某日note的數量
+                //日期<10號
+                if(i < 10){
+                    //月份<10號
+                    if (m < 10){ var nday = "n" + y + "-" + "0" + m + "-" + "0" + i;
+                    //月份>=10號
+                    }else{ var nday = "n" + y + "-" + m + "-" + "0" + i; }
+                //日期>=10號
+                }else{
+                    //月份<10號
+                    if (m < 10){ var nday = "n" + y + "-" + "0" + m + "-" + i;
+                    //月份>=10號
+                    }else{ var nday = "n" + y + "-" + m + "-" + i; }
+                }
+
+                const localSItem = localStorage.getItem(nday);
+                //判斷localStorage中 nyyyy-mm-dd是否存在，
+                //若存在，則顯示note數
+                if (localSItem){
+                    const aidName ="aplanTR0" + planTR[index+i-1] ;
+                    this.shadowRoot.getElementById(aidName).innerText = localSItem;
+                    this.shadowRoot.getElementById(aidName).style.display = "block";
+                }else{
+                    const aidName ="aplanTR0" + planTR[index+i-1] ;
+                    this.shadowRoot.getElementById(aidName).style.display = "none";
+                }
+
+            }
+        }  
+        //如果行事曆最後一row都沒有值，則不顯示最後一row
+        const Row7_1 = this.shadowRoot.getElementById("planTR07-1").innerText;
+        const Row7_2 = this.shadowRoot.getElementById("planTR07-2").innerText;
+        const Row7_3 = this.shadowRoot.getElementById("planTR07-3").innerText;
+        const Row7_4 = this.shadowRoot.getElementById("planTR07-4").innerText;
+        const Row7_5 = this.shadowRoot.getElementById("planTR07-5").innerText;
+        const Row7_6 = this.shadowRoot.getElementById("planTR07-6").innerText;
+        const Row7_7 = this.shadowRoot.getElementById("planTR07-7").innerText;
+        if (Row7_1 == "" && Row7_2 == "" && Row7_3 == "" && Row7_4 == "" && 
+            Row7_5 == "" && Row7_6 == "" && Row7_7 == "" ){
+                this.shadowRoot.getElementById("planTR07").style.display = "none";
+            }
         //清除之前行事曆下的note
         if (this.shadowRoot.getElementById("note000")){
             this.shadowRoot.getElementById("note000").remove();
@@ -650,8 +967,8 @@ class Plan extends HTMLElement {
     }
 
     connectedCallback(){
-        this.shadowRoot.getElementById("yyyy").addEventListener("change", () => this.changeyyyy());
-        this.shadowRoot.getElementById("mm").addEventListener("change", () => this.changemm());
+        this.shadowRoot.getElementById("yyyy").addEventListener("change", (e) => this.changeyyyy(e));
+        this.shadowRoot.getElementById("mm").addEventListener("change", (e) => this.changemm(e));
         this.shadowRoot.querySelectorAll(".aplanTR").forEach(item => {
             item.addEventListener("click", (event) => this.getNote(event))
         });
@@ -661,8 +978,8 @@ class Plan extends HTMLElement {
         
     }
     disconnectedCallback(){
-        this.shadowRoot.getElementById("yyyy").removeEventListener("change", () => this.changeyyyy());
-        this.shadowRoot.getElementById("mm").removeEventListener("change", () => this.changemm());
+        this.shadowRoot.getElementById("yyyy").removeEventListener("change", (e) => this.changeyyyy(e));
+        this.shadowRoot.getElementById("mm").removeEventListener("change", (e) => this.changemm(e));
         this.shadowRoot.querySelectorAll(".aplanTR").forEach(item => {
             item.removeEventListener("click", (event) => this.getNote(event))
         });
