@@ -58,37 +58,37 @@
             <div id="skills02" >
                 <div id="skills03-1" class="col-sm-4">
                     <div id="skills03-1-container">
-                        <h4></h4>
                         <div>
-                            <b>HTML</b>
+                            <b>Vue 2/3</b>
+                            <b>React</b>
                             <b>Javascript</b>
                             <b>jQuery</b>                         
-                            <b>RWD</b>                         
                         </div>
                     </div>
                 </div>
 
                 <div id="skills03-2" class="col-sm-4">
                     <div id="skills03-2-container">
-                        <h4></h4>
                         <div>
+                            <b>HTML</b>
                             <b>CSS</b>
                             <b>SCSS</b>
-                            <b>Bootstrap</b>                         
+                            <b>Vuetify</b>
+                            <b>Element Plus</b>
                         </div>
                     </div>
                 </div>
 
                 <div id="skills03-3" class="col-sm-4">
                     <div  id="skills03-3-container">
-                        <h4></h4>
                         <div>
                             <b>Git</b>
-                            <b>GitHub</b>
+                            <b>GitLab</b>
                             <b>Visual Studio Code</b>
+                            <b>RWD</b>                         
+                            <b>API 介接＆資料處理</b>                         
                         </div>
                     </div>
-
                 </div>       
             </div>
         </div>
@@ -99,40 +99,39 @@
 
         <div id="protfolio01">
             <div  id="protfolio01-1" class="work">
-                <a href="./css_templates/buttondemo.html">
+                <a href="https://jungchu.github.io/ooxx/" target="_blank">
                     <div>
                         <div id="work-img-1" class="work-img">
-                            <img id="work-img-1-img" src="./pic/work1.png" alt="pic01">
+                            <img id="work-img-1-img" src="./pic/ooxx_1.png" alt="pic01">
                         </div>
-                        <div  id="work-name-1" class="work-name">
-                            <p>Design your own button simply</p>
+                        <div id="work-name-1" class="work-name">
+                            <p> OOXX </p>
                         </div>
                     </div>
                 </a>
                 <div class="skill-description">
-                    <p>HTML / SCSS / Javascript</p>
+                    <p>React / 技術2 / 技術3 </p>
                 </div>
-                
             </div>  
 
             <div  id="protfolio01-2" class="work">
-                <a href="./note/homepage.html">
+                <a href="https://jungchu.github.io/practice_ubike_tpe/" target="_blank">
                     <div>
                         <div id="work-img-2" class="work-img">
-                            <img id="work-img-2-img" src="./pic/work2-1.png" alt="pic02">
+                            <img id="work-img-2-img" src="./pic/ubike_1.png" alt="pic02">
                         </div>
                         <div id="work-name-2" class="work-name">
-                            <p>My note</p>
+                            <p>Youbike 2.0 臺北市即時資訊</p>
                         </div>
                     </div>
                 </a>
                 <div class="skill-description">
-                <p>HTML / SCSS / Javascript / Web component</p>
+                <p>React / 政府資料開放平臺 API 介接</p>
                 </div>
             </div>
 
-            <div  id="protfolio01-3" class="work">
-                <a href="./station/station.html">
+            <!-- <div  id="protfolio01-3" class="work">
+                <a href="./station/station.html" target="_blank">
                     <div>
                         <div id="work-img-3" class="work-img">
                             <img id="work-img-3-img" src="./pic/work3.png" alt="pic03">
@@ -145,35 +144,12 @@
                 <div class="skill-description">
                 <p>HTML / SCSS / Javascript / AJAX / Web component / 政府資料開放平臺 / RWD </p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     
     <div id="footer" class="col-sm-12">
         <p>Copyright © 2022 Jung Chu All rights reserved.</p>
     </div>
-
-
-
-    
-    <script>
-        
-        var i = 0
-        setInterval(() => {
-            i++;
-            if ( i == 4){
-                i = 1;
-            }
-            if ( i == 1 ){
-                document.getElementById("work-img-2-img").getAttributeNode("src").value = "./pic/work2-1.png"
-            }else if ( i == 2 ){
-                document.getElementById("work-img-2-img").getAttributeNode("src").value = "./pic/work2-2.png"
-            }else if ( i == 3 ){
-                document.getElementById("work-img-2-img").getAttributeNode("src").value = "./pic/work2-3.png"
-            }
-            
-        }, 1500);
-       
-    </script>
 </body>
 </html>
